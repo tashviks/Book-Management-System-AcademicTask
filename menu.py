@@ -1,16 +1,16 @@
 from tkinter import *
 import sys
 import os
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-
-# the libraries and module that need to be imported
-# in order to make the GUI function properly
+from matplotlib.backends.backend_tkagg import *
 
 window = Tk()
-window.title("Library Logistics System")
+# bg = PhotoImage(file = "books.png")
+window.title("Book Management System by Bhavya and Tashvik")
 window.geometry("800x500")
-window.configure(background="cyan")
+window.iconbitmap('icn.ico')
+window.configure(background="Black")
 
+# defining the messages used for user interaction
 search_mes = Label(window, text="Please input the title of the book you are looking for", fg="white", bg="black")
 return_mes = Label(window, text="Please input the ID of the book you want to return", fg="white", bg="black")
 delete_mes = Label(window, text="Please input the tittle of the book you want to delete", fg="white", bg="black")
@@ -31,9 +31,9 @@ availability_mes = Label(window, text="Please write the title of the book you wa
 def search():
     # this function is activated when the search button is clicked
     # this function shows up the search box, the button and a message explaining what to do
-    search_mes.place(relx=0.05, rely=0.23, anchor=NW)
-    searchbox.place(relx=0.05, rely=0.26, anchor=NW, height=25, width=150)
-    initialize_search.place(relx=0.15, rely=0.26, anchor=NW, height=25, width=50)
+    search_mes.place(relx=0.3, rely=0.23, anchor=NW)
+    searchbox.place(relx=0.3, rely=0.28, anchor=NW, height=25, width=150)
+    initialize_search.place(relx=0.3, rely=0.35, anchor=NW, height=25, width=50)
     # closes all the widgets not associated with this function
     deletebox.place_forget()
     initialize_del.place_forget()
@@ -94,10 +94,9 @@ def deletion():
     # it is in charge of showing the deletion entry
     # box and the the message explaining what to do as well as the
     # button to submit the title
-    delete_mes.place(relx=0.05, rely=0.35, anchor=NW)
-    deletebox.place(relx=0.05, rely=0.38, anchor=NW, height=25, width=150)
-    initialize_del.place(relx=0.15, rely=0.38, anchor=NW, height=25, width=50)
-    # closes all the widgets not associated with this function
+    delete_mes.place(relx=0.3, rely=0.35, anchor=NW)
+    deletebox.place(relx=0.3, rely=0.40, anchor=NW, height=25, width=150)
+    initialize_del.place(relx=0.3, rely=0.46, anchor=NW, height=25, width=50)
     searchbox.place_forget()
     initialize_search.place_forget()
     initialize_add.place_forget()
@@ -134,6 +133,7 @@ def deletion():
     checkout_final_mes.place_forget()
 
 
+
 def deletionpt2():
     import booksearch
     # it is in charge in testing if the title name submitted is correct
@@ -162,13 +162,12 @@ def addition():
     # it is in charge of showing the addition entry box
     # and the the message explaining what to do as well as the
     # button to submit the title
-    add_mes.place(relx=0.05, rely=0.5, anchor=NW)
-    authorf.place(relx=0.02, rely=0.54, anchor=NW)
-    author.place(relx=0.05, rely=0.54, anchor=NW, height=25, width=100)
-    titlef.place(relx=0.02, rely=0.58, anchor=NW)
-    title.place(relx=0.05, rely=0.58, anchor=NW, height=25, width=100)
-    initialize_add.place(relx=0.05, rely=0.64, anchor=NW, height=25, width=50)
-    # closes all the widgets not associated with this function
+    add_mes.place(relx=0.3, rely=0.48, anchor=NW)
+    authorf.place(relx=0.3, rely=0.54, anchor=NW)
+    author.place(relx=0.38, rely=0.54, anchor=NW, height=25, width=100)
+    titlef.place(relx=0.3, rely=0.60, anchor=NW)
+    title.place(relx=0.38, rely=0.60, anchor=NW, height=25, width=100)
+    initialize_add.place(relx=0.4, rely=0.66, anchor=NW, height=25, width=50)
     searchbox.place_forget()
     initialize_search.place_forget()
     deletebox.place_forget()
@@ -193,6 +192,7 @@ def addition():
     present_books.place_forget()
     return_final_mes.place_forget()
     checkout_final_mes.place_forget()
+
 
 
 def additionpt2():
@@ -225,12 +225,12 @@ def checkout():
     # it is in charge of showing the checkout entry boxes
     # and the the message explaining what to do as well as the
     # button to submit the book and member's id
-    co_mes.place(relx=0.94, rely=0.43, anchor=E)
-    co_member.place(relx=0.84, rely=0.46, anchor=E)
-    co_mid.place(relx=0.88, rely=0.46, anchor=E, height=25, width=50)
-    co_book.place(relx=0.84, rely=0.5, anchor=E)
-    co_bid.place(relx=0.88, rely=0.5, anchor=E, height=25, width=50)
-    initialize_co.place(relx=0.95, rely=0.5, anchor=E, height=25, width=100)
+    co_mes.place(relx=0.65, rely=0.43, anchor=E)
+    co_member.place(relx=0.50, rely=0.48, anchor=E)
+    co_mid.place(relx=0.61, rely=0.48, anchor=E, height=25, width=80)
+    co_book.place(relx=0.50, rely=0.54, anchor=E)
+    co_bid.place(relx=0.61, rely=0.54, anchor=E, height=25, width=80)
+    initialize_co.place(relx=0.59, rely=0.61, anchor=E, height=25, width=100)
     # closes all the widgets not associated with this function
     initialize_add.place_forget()
     searchbox.place_forget()
@@ -260,6 +260,7 @@ def checkout():
     return_final_mes.place_forget()
 
 
+
 def checkoutpt2():
     import bookcheckout
     # it makes sure that input is correct and then loans the book
@@ -282,9 +283,9 @@ def return_book():
     # it is in charge of showing the return entry box and the the message
     # explaining what to do as well as the
     # button to submit the book's id
-    return_mes.place(relx=0.98, rely=0.61, anchor=E)
-    return_entry.place(relx=0.885, rely=0.65, anchor=E, height=25, width=50)
-    initialize_return.place(relx=0.8945, rely=0.7, anchor=E, height=25, width=70)
+    return_mes.place(relx=0.63, rely=0.61, anchor=E)
+    return_entry.place(relx=0.42, rely=0.67, anchor=E, height=25, width=100)
+    initialize_return.place(relx=0.38, rely=0.73, anchor=E, height=25, width=70)
     # this part closes all the widgets not associated with return_book()
     searchbox.place_forget()
     initialize_search.place_forget()
@@ -347,6 +348,45 @@ def popular():
     pop = FigureCanvasTkAgg(fig, master=window)
     pop.draw()
     pop.get_tk_widget().place(relx=0.5, rely=0.5, anchor=CENTER, height=500, width=920)
+    booklist.reformattor()
+    searchbox.place_forget()
+    initialize_search.place_forget()
+    deletebox.place_forget()
+    initialize_del.place_forget()
+    initialize_add.place_forget()
+    co_mid.place_forget()
+    co_bid.place_forget()
+    initialize_co.place_forget()
+    return_entry.place_forget()
+    initialize_return.place_forget()
+    search_mes.place_forget()
+    return_mes.place_forget()
+    delete_mes.place_forget()
+    add_mes.place_forget()
+    co_member.place_forget()
+    co_book.place_forget()
+    search_result.place_forget()
+    availability_mes.place_forget()
+    availability_entry.place_forget()
+    initialize_st.place_forget()
+    stres.place_forget()
+    authorf.place_forget()
+    author.place_forget()
+    titlef.place_forget()
+    title.place_forget()
+    datef.place_forget()
+    date.place_forget()
+    initialize_add.place_forget()
+    authorf.place_forget()
+    author.place_forget()
+    titlef.place_forget()
+    title.place_forget()
+    initialize_add.place_forget()
+    confirm_del.place_forget()
+    co_mes.place_forget()
+    present_books.place_forget()
+    return_final_mes.place_forget()
+    checkout_final_mes.place_forget()
 
     def quitgraph():
         pop.get_tk_widget().place_forget()
@@ -441,9 +481,9 @@ def availability():
     # it is in charge of showing the availability entry box and the
     # the message explaining what to do as well as the
     # button to submit the book's title
-    availability_mes.place(relx=0.98, rely=0.23, anchor=E)
-    initialize_st.place(relx=0.9, rely=0.3, anchor=E, height=25, width=100)
-    availability_entry.place(relx=0.9, rely=0.26, anchor=E, height=25, width=100)
+    availability_mes.place(relx=0.61, rely=0.25, anchor=E)
+    initialize_st.place(relx=0.50, rely=0.37, anchor=E, height=25, width=100)
+    availability_entry.place(relx=0.50, rely=0.31, anchor=E, height=25, width=100)
     # closes all the widgets not associated with this function
     searchbox.place_forget()
     initialize_search.place_forget()
@@ -551,7 +591,7 @@ def restart_the_program():
 no_button = Button(window, text="Cancel", highlightcolor="Black", fg="Black", command=kill_all_hiden)
 transfer = Label(window)  # used in order to transfer values from one function to another
 
-title = Label(window, text="Welcome to the Library management system", font=("Helvetica", 16), fg="white", bg="black")
+title = Label(window, text="Welcome to the Book management system", font=("Helvetica", 16), fg="white", bg="black")
 title.place(relx=0.5, rely=0.1, anchor=CENTER)
 
 search = Button(window, text="Search a title", highlightcolor="Black", fg="Black", command=search)
