@@ -8,7 +8,7 @@ window = Tk()
 window.title("Book Management System by Bhavya and Tashvik")
 window.geometry("800x500")
 window.iconbitmap('icn.ico')
-window.configure(background="Black")
+window.configure(background="#8CF8CA")
 
 # defining the messages used for user interaction
 search_mes = Label(window, text="Please input the title of the book you are looking for", fg="white", bg="black")
@@ -598,29 +598,29 @@ search = Button(window, text="Search a title", highlightcolor="Black", fg="Black
 search.place(relx=0.05, rely=0.2, anchor=NW, height=40, width=100)
 
 availabilityb = Button(window, text="Availability", highlightcolor="Black", command=availability)
-availabilityb.place(relx=0.90, rely=0.2, anchor=E, height=40, width=100)
+availabilityb.place(relx=0.95, rely=0.24, anchor=E, height=40, width=100)
 
-quitter = Button(window, text="Quit", command=killer)
-quitter.place(relx=0.05, rely=0.05, anchor=NW, height=40, width=100)
+quitter = Button(window, text="Quit", command=killer , font = ('calibri', 10, 'bold', 'underline'),foreground = 'red')
+quitter.place(relx=0.05, rely=0.04, anchor=NW, height=40, width=100)
 
 deleteb = Button(window, text="Delete a title", command=deletion)
-deleteb.place(relx=0.05, rely=0.32, anchor=NW, height=40, width=100)
+deleteb.place(relx=0.05, rely=0.35, anchor=NW, height=40, width=100)
 confirm_del = Button(window, text="Confirm", command=deletionpt3)
 
 importb = Button(window, text="Add a book", command=addition)
-importb.place(relx=0.05, rely=0.46, anchor=NW, height=40, width=100)
+importb.place(relx=0.05, rely=0.50, anchor=NW, height=40, width=100)
 
 checkoutb = Button(window, text="Check Out", command=checkout)
-checkoutb.place(relx=0.90, rely=0.4, anchor=E, height=40, width=100)
+checkoutb.place(relx=0.95, rely=0.38, anchor=E, height=40, width=100)
 
 returnb = Button(window, text="Return a Book", command=return_book)
-returnb.place(relx=0.9, rely=0.57, anchor=E, height=40, width=100)
+returnb.place(relx=0.95, rely=0.525, anchor=E, height=40, width=100)
 
 popularb = Button(window, text="Popularity ratings", command=popular)
-popularb.place(relx=0.05, rely=0.75, anchor=NW, height=40, width=100)
+popularb.place(relx=0.05, rely=0.70, anchor=NW, height=40, width=100)
 
 bookb = Button(window, text="See all books", command=show_books)
-bookb.place(relx=0.90, rely=0.75, anchor=E, height=40, width=100)
+bookb.place(relx=0.95, rely=0.75, anchor=E, height=40, width=100)
 present_books = Label(window, font=18, fg="white", bg="black")
 
 searchbox = Entry(window)
@@ -653,7 +653,7 @@ initialize_st = Button(window, text="Check", highlightcolor="Black", fg="Black",
 stres = Label(window, font=16, fg="white", bg="black")
 availability_entry = Entry(window)
 
-restart = Button(window, text="Restart", highlightcolor="Black", fg="Black", command=restart_the_program)
-restart.place(relx=0.83, rely=0.05, anchor=NW, height=25, width=100)
+restart = Button(window, text="Restart", highlightcolor="Black", fg="Black", command=restart_the_program , font = ('calibri', 10, 'bold', 'underline'),foreground = 'blue')
+restart.place(relx=0.83, rely=0.05, anchor=NW, height=40, width=100)
 
 window.mainloop()
